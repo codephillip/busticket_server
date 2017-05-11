@@ -5,7 +5,7 @@ from django.utils.encoding import smart_str
 class BusCompany(models.Model):
     name = models.CharField(max_length=400)
     image = models.CharField(max_length=400)
-    phone = models.CharField(max_length=400)
+    phone = models.CharField(max_length=10)
     email = models.EmailField()
     address = models.CharField(max_length=400)
     longitude = models.FloatField(default=0.0)
@@ -18,7 +18,7 @@ class BusCompany(models.Model):
 class Customer(models.Model):
     name = models.CharField(max_length=400)
     image = models.CharField(max_length=400)
-    phone = models.CharField(max_length=400)
+    phone = models.CharField(max_length=10)
     email = models.EmailField()
     address = models.CharField(max_length=400)
     longitude = models.FloatField(default=0.0)
