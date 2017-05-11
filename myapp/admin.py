@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from myapp.models import BusCompany, Customer, Route, Order, Bus
+
+admin.site.register(BusCompany)
+admin.site.register(Bus)
+admin.site.register(Customer)
+admin.site.register(Route)
+admin.site.register(Order)

@@ -4,8 +4,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from myapp.models import Route
-from myapp.serializers import RouteSerializer
+from myapp.models import Route, Order, Customer, Bus, BusCompany
+from myapp.serializers import RouteSerializer, OrderSerializer, CustomerSerializer, BusSerializer, BusCompanySerializer
 
 
 def index(request):
@@ -15,6 +15,26 @@ def index(request):
 @api_view(['GET', 'POST'])
 def routes_route(request):
     return master_route(request, 'routes', Route, RouteSerializer)
+
+
+@api_view(['GET', 'POST'])
+def orders_route(request):
+    return master_route(request, 'orders', Order, OrderSerializer)
+
+
+@api_view(['GET', 'POST'])
+def customers_route(request):
+    return master_route(request, 'customers', Customer,CustomerSerializer)
+
+
+@api_view(['GET', 'POST'])
+def buses_route(request):
+    return master_route(request, 'buses', Bus, BusSerializer)
+
+
+@api_view(['GET', 'POST'])
+def bus_companys_route(request):
+    return master_route(request, 'bus_company', BusCompany, BusCompanySerializer)
 
 
 def master_route(request, tableName, Table, TableSerializer):
