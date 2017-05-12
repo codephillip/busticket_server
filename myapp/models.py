@@ -17,9 +17,9 @@ class BusCompany(models.Model):
 
 class Customer(models.Model):
     name = models.CharField(max_length=400)
-    image = models.CharField(max_length=400)
     phone = models.CharField(max_length=10)
     email = models.EmailField()
+    password = models.CharField(max_length=40)
     address = models.CharField(max_length=400)
     longitude = models.FloatField(default=0.0)
     latitude = models.FloatField(default=0.0)

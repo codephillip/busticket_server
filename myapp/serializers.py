@@ -34,4 +34,4 @@ class RouteSerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
-        fields = ('id', 'name', 'image', 'phone', 'email', 'address', 'longitude', 'latitude')
+        fields = ('id', 'name', 'phone', 'password', 'email', 'address', 'longitude', 'latitude')

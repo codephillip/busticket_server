@@ -19,12 +19,29 @@ def routes_route(request):
 
 @api_view(['GET', 'POST'])
 def orders_route(request):
+    # make random order code
     return master_route(request, 'orders', Order, OrderSerializer)
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'POST', 'PUT'])
 def customers_route(request):
-    return master_route(request, 'customers', Customer,CustomerSerializer)
+    if request.method == 'PUT':
+        error_response = Response({"status": "Failed to login customer"}, status=status.HTTP_401_UNAUTHORIZED)
+        try:
+            print('Request data:')
+            print(request.data['phoneNumber'])
+            print(request.data['password'])
+            customers = Customer.objects.filter(phone=request.data['phoneNumber'])
+            print(customers[0].password)
+            if customers is not None and customers[0].password == request.data['password']:
+                return Response({"customers": CustomerSerializer(customers, many=True).data},
+                                status=status.HTTP_202_ACCEPTED)
+            else:
+                return error_response
+        except Exception:
+            return error_response
+            # handles user sign-up and get all users
+    return master_route(request, 'customers', Customer, CustomerSerializer)
 
 
 @api_view(['GET', 'POST'])
