@@ -1,0 +1,8 @@
+{
+  "name": "BusTicket api",
+  "description": "Api for the BusTicket",
+  "image": "heroku/python",
+  "repository": "https://github.com/codephillip/busticket_server",
+  "keywords": ["python", "django" ],
+  "addons": [ "heroku-postgresql" ]
+}
