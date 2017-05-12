@@ -1,12 +1,18 @@
 from rest_framework import serializers
 
-from myapp.models import Route, Order, BusCompany, Customer, Bus
+from myapp.models import Route, Order, BusCompany, Customer, Bus, Location
 
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ('id', 'code', 'valid', 'date', 'customer', 'route')
+
+
+class LocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Location
+        fields = ('id', 'name', 'longitude', 'latitude')
 
 
 class BusCompanySerializer(serializers.ModelSerializer):
