@@ -29,9 +29,9 @@ def customers_route(request):
         error_response = Response({"status": "Failed to login customer"}, status=status.HTTP_401_UNAUTHORIZED)
         try:
             print('Request data:')
-            print(request.data['phoneNumber'])
+            print(request.data['phone'])
             print(request.data['password'])
-            customers = Customer.objects.filter(phone=request.data['phoneNumber'])
+            customers = Customer.objects.filter(phone=request.data['phone'])
             print(customers[0].password)
             if customers is not None and customers[0].password == request.data['password']:
                 return Response({"customers": CustomerSerializer(customers, many=True).data},
