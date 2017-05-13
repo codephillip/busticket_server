@@ -4,6 +4,9 @@ from myapp.models import Route, Order, BusCompany, Customer, Bus, Location
 
 
 class OrderSerializer(serializers.ModelSerializer):
+    code = serializers.IntegerField(required=False, allow_null=True)
+    date = serializers.CharField(required=False, allow_null=True)
+
     class Meta:
         model = Order
         fields = ('id', 'code', 'valid', 'date', 'customer', 'route')
