@@ -61,7 +61,7 @@ class Route(models.Model):
 
 
 class Order(models.Model):
-    code = models.IntegerField(null=True)
+    code = models.IntegerField(null=True, unique=True)
     valid = models.BooleanField()
     date = models.CharField(max_length=400, null=True)
     customer = models.ForeignKey(Customer)

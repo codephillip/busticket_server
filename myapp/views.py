@@ -1,12 +1,14 @@
+import random
+
 from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
-from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 
 from myapp.models import Route, Order, Customer, Bus, BusCompany, Location
-from myapp.serializers import RouteSerializer, OrderSerializer, CustomerSerializer, BusSerializer, BusCompanySerializer, LocationSerializer
+from myapp.serializers import RouteSerializer, OrderSerializer, CustomerSerializer, BusSerializer, BusCompanySerializer, \
+    LocationSerializer
 
 
 def index(request):
@@ -23,16 +25,29 @@ def locations_route(request):
     return master_route(request, 'locations', Location, LocationSerializer)
 
 
+def generate_random_int():
+    random_int = random.randint(100000, 999999)
+    orders = Order.objects.filter(code=random_int)
+    if orders is not None:
+        return random.randint(100000, 999999)
+    else:
+        return random_int
+
+
 @api_view(['GET', 'POST'])
 def orders_route(request):
-    # make random order code
-    # if request.method == 'POST':
-    #     data = JSONParser().parse(request)
-    #     serializer = SnippetSerializer(data=data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return JsonResponse(serializer.data, status=201)
-    #     return JsonResponse(serializer.errors, status=400)
+    if request.method == 'POST':
+        print(request.data['valid'])
+        json_object = {'code': generate_random_int(),
+                       'date': request.data['date'], 'valid': request.data['valid'],
+                       'customer': request.data['customer'],
+                       'route': request.data['route']}
+        serializer = OrderSerializer(data=json_object)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # handles GET request
     return master_route(request, 'orders', Order, OrderSerializer)
 
 
