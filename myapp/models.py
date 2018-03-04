@@ -63,9 +63,19 @@ class Route(models.Model):
 class Order(models.Model):
     code = models.IntegerField(null=True, unique=True)
     valid = models.BooleanField()
-    date = models.CharField(max_length=400, null=True)
+    date = models.DateTimeField(auto_now_add=True)
     customer = models.ForeignKey(Customer)
     route = models.ForeignKey(Route)
 
     def __str__(self):
         return smart_str(self.code)
+
+
+class Feedback(models.Model):
+    code = models.IntegerField(null=True, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    content = models.TextField()
+    title = models.CharField(max_length=400)
+
+    def __str__(self):
+        return smart_str(self.created_at)

@@ -8,5 +8,8 @@ uritemplate==3.0.0
 whitenoise==3.2.2
 dj-database-url==0.4.1
 psycopg2==2.7.1
+# Incase psycopg2 fails
+# pip install http://initd.org/psycopg/upload/psycopg2-2.7.3.1.dev0/psycopg2-2.7.3.1.dev0-cp36-cp36m-manylinux1_x86_64.whl
+# pyscopy2 --upgrade
 
 

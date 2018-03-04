@@ -1,11 +1,10 @@
 from rest_framework import serializers
 
-from myapp.models import Route, Order, BusCompany, Customer, Bus, Location
+from myapp.models import Route, Order, BusCompany, Customer, Bus, Location, Feedback
 
 
 class OrderSerializer(serializers.ModelSerializer):
     code = serializers.IntegerField(required=False, allow_null=True)
-    date = serializers.CharField(required=False, allow_null=True)
 
     class Meta:
         model = Order
@@ -44,3 +43,9 @@ class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
         fields = ('id', 'name', 'phone', 'password', 'email', 'address', 'longitude', 'latitude')
+
+
+class FeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Feedback
+        fields = ('id', 'code', 'created_at', 'content', 'title')
