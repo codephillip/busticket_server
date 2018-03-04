@@ -2,6 +2,7 @@ from django.conf.urls import url
 from django.contrib import admin
 
 from myapp import views
+from myapp.views import FeedbackView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -12,4 +13,5 @@ urlpatterns = [
     url(r'^api/v1/customers', views.customers_route, name='customers_route'),
     url(r'^api/v1/buses', views.buses_route, name='buses_route'),
     url(r'^api/v1/bus_companys', views.bus_companys_route, name='bus_companys_route'),
+    url(r'^api/v1/feedbacks', FeedbackView.as_view(), name='feedback'),
 ]

@@ -4,11 +4,12 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
+from rest_framework.generics import ListCreateAPIView
 from rest_framework.response import Response
 
-from myapp.models import Route, Order, Customer, Bus, BusCompany, Location
+from myapp.models import Route, Order, Customer, Bus, BusCompany, Location, Feedback
 from myapp.serializers import RouteSerializer, OrderSerializer, CustomerSerializer, BusSerializer, BusCompanySerializer, \
-    LocationSerializer
+    LocationSerializer, FeedbackSerializer
 
 
 def index(request):
@@ -98,3 +99,12 @@ def master_route(request, tableName, Table, TableSerializer):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class FeedbackView(ListCreateAPIView):
+    """
+    Returns all feedbacks in the System
+    Allows User to provide feedback
+    """
+    queryset = Feedback.objects.all()
+    serializer_class = FeedbackSerializer

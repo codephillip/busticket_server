@@ -35,7 +35,7 @@ class Bus(models.Model):
     model = models.CharField(max_length=400)
 
     def __str__(self):
-        return self.number_plate
+        return smart_str(self.bus_company.name + ' # ' + self.number_plate)
 
 
 class Location(models.Model):
@@ -48,9 +48,9 @@ class Location(models.Model):
 
 
 class Route(models.Model):
-    code = models.IntegerField(unique=True)
-    source = models.CharField(max_length=400)
-    destination = models.CharField(max_length=400)
+    code = models.IntegerField()
+    source = models.ForeignKey(Location, related_name='source')
+    destination = models.ForeignKey(Location, related_name='destination')
     bus = models.ForeignKey(Bus)
     price = models.IntegerField()
     arrival = models.TimeField()
@@ -61,7 +61,7 @@ class Route(models.Model):
 
 
 class Order(models.Model):
-    code = models.IntegerField(null=True, unique=True)
+    code = models.IntegerField()
     valid = models.BooleanField()
     date = models.DateTimeField(auto_now_add=True)
     customer = models.ForeignKey(Customer)
@@ -72,7 +72,7 @@ class Order(models.Model):
 
 
 class Feedback(models.Model):
-    code = models.IntegerField(null=True, unique=True)
+    code = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     title = models.CharField(max_length=400)
