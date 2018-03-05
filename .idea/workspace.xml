@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b807c2b2-6c9f-4390-bb7b-7d42d6bd90e7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0002_auto_20170510_1435.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0003_auto_20170511_0851.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0004_auto_20170511_0900.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0005_auto_20170511_0915.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0006_auto_20170511_0917.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0007_auto_20170511_0920.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0008_auto_20170511_0921.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0009_auto_20170511_0935.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0010_auto_20170511_1049.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0011_auto_20170512_0409.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0012_auto_20170512_0546.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0013_auto_20170512_0838.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0014_auto_20170512_0844.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0015_auto_20170512_0846.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0016_location.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0017_auto_20170513_0726.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0018_auto_20180304_2135.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0019_auto_20180305_0112.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0020_auto_20180305_0134.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0021_auto_20180305_0141.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myapp/migrations/0022_auto_20180305_0149.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/busticket/settings.py" afterPath="$PROJECT_DIR$/busticket/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myapp/models.py" afterPath="$PROJECT_DIR$/myapp/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myapp/serializers.py" afterPath="$PROJECT_DIR$/myapp/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myapp/views.py" afterPath="$PROJECT_DIR$/myapp/views.py" />
     </list>
     <ignored path="busticket.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/busticket/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="387">
-              <caret line="104" column="6" lean-forward="true" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
+              <caret line="104" column="6" lean-forward="false" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -65,8 +38,8 @@
       <file leaf-file-name="serializers.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myapp/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-491">
-              <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+            <state relative-caret-position="463">
+              <caret line="64" column="64" lean-forward="false" selection-start-line="64" selection-start-column="64" selection-end-line="64" selection-end-column="64" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -950,7 +923,7 @@
     <entry file="file://$PROJECT_DIR$/busticket/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
-          <caret line="104" column="6" lean-forward="true" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
+          <caret line="104" column="6" lean-forward="false" selection-start-line="104" selection-start-column="6" selection-end-line="104" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -967,8 +940,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myapp/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-491">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        <state relative-caret-position="463">
+          <caret line="64" column="64" lean-forward="false" selection-start-line="64" selection-start-column="64" selection-end-line="64" selection-end-column="64" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
