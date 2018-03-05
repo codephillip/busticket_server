@@ -10,6 +10,7 @@ class BusCompany(models.Model):
     address = models.CharField(max_length=400)
     longitude = models.FloatField(default=0.0)
     latitude = models.FloatField(default=0.0)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
@@ -23,6 +24,7 @@ class Customer(models.Model):
     address = models.CharField(max_length=400)
     longitude = models.FloatField(default=0.0)
     latitude = models.FloatField(default=0.0)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
@@ -33,6 +35,7 @@ class Bus(models.Model):
     bus_company = models.ForeignKey(BusCompany)
     seats = models.IntegerField()
     model = models.CharField(max_length=400)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return smart_str(self.bus_company.name + ' # ' + self.number_plate)
@@ -42,6 +45,7 @@ class Location(models.Model):
     name = models.CharField(max_length=400)
     longitude = models.FloatField(default=0.0)
     latitude = models.FloatField(default=0.0)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
@@ -55,6 +59,7 @@ class Route(models.Model):
     price = models.IntegerField()
     arrival = models.TimeField()
     departure = models.TimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return smart_str(self.code)
@@ -63,7 +68,7 @@ class Route(models.Model):
 class Order(models.Model):
     code = models.IntegerField()
     valid = models.BooleanField()
-    date = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     customer = models.ForeignKey(Customer)
     route = models.ForeignKey(Route)
 

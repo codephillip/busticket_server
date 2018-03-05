@@ -18,7 +18,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ('id', 'code', 'valid', 'date', 'customer', 'route')
+        fields = ('id', 'code', 'valid', 'created_at', 'customer', 'route')
 
     def validate(self, attrs):
         attrs['code'] = generate_random_int()
@@ -28,13 +28,13 @@ class OrderSerializer(serializers.ModelSerializer):
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
-        fields = ('id', 'name', 'longitude', 'latitude')
+        fields = ('id', 'name', 'longitude', 'latitude', 'created_at')
 
 
 class BusCompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = BusCompany
-        fields = ('id', 'name', 'image', 'phone', 'email', 'address', 'longitude', 'latitude')
+        fields = ('id', 'name', 'image', 'phone', 'email', 'address', 'longitude', 'latitude', 'created_at')
 
 
 class BusSerializer(serializers.ModelSerializer):
@@ -42,7 +42,7 @@ class BusSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Bus
-        fields = ('id', 'number_plate', 'bus_company', 'seats', 'model')
+        fields = ('id', 'number_plate', 'bus_company', 'seats', 'model', 'created_at')
 
 
 class RouteSerializer(serializers.ModelSerializer):
@@ -50,16 +50,16 @@ class RouteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Route
-        fields = ('id', 'code', 'source', 'destination', 'bus', 'price', 'arrival', 'departure')
+        fields = ('id', 'code', 'source', 'destination', 'bus', 'price', 'arrival', 'departure', 'created_at')
 
 
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
-        fields = ('id', 'name', 'phone', 'password', 'email', 'address', 'longitude', 'latitude')
+        fields = ('id', 'name', 'phone', 'password', 'email', 'address', 'longitude', 'latitude', 'created_at')
 
 
 class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
         model = Feedback
-        fields = ('id', 'code', 'created_at', 'content', 'title')
+        fields = ('id', 'code', 'created_at', 'content', 'title', 'created_at')

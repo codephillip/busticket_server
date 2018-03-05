@@ -31,23 +31,6 @@ class OrderView(ListCreateAPIView):
     serializer_class = OrderSerializer
 
 
-@api_view(['GET', 'POST'])
-def orders_route(request):
-    if request.method == 'POST':
-        print(request.data['valid'])
-        json_object = {'code': generate_random_int(),
-                       'date': request.data['date'], 'valid': request.data['valid'],
-                       'customer': request.data['customer'],
-                       'route': request.data['route']}
-        serializer = OrderSerializer(data=json_object)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    # handles GET request
-    return master_route(request, 'orders', Order, OrderSerializer)
-
-
 @api_view(['GET', 'POST', 'PUT'])
 def customers_route(request):
     if request.method == 'PUT':
