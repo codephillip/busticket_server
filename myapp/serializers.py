@@ -1,6 +1,16 @@
 from rest_framework import serializers
 
 from myapp.models import Route, Order, BusCompany, Customer, Bus, Location, Feedback
+import random
+
+
+def generate_random_int():
+    random_int = random.randint(100000, 999999)
+    orders = Order.objects.filter(code=random_int)
+    if orders is not None:
+        return random.randint(100000, 999999)
+    else:
+        return random_int
 
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -9,6 +19,10 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ('id', 'code', 'valid', 'date', 'customer', 'route')
+
+    def validate(self, attrs):
+        attrs['code'] = generate_random_int()
+        return attrs
 
 
 class LocationSerializer(serializers.ModelSerializer):

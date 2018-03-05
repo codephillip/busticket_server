@@ -16,23 +16,19 @@ def index(request):
     return render(request, 'index.html')
 
 
-@api_view(['GET', 'POST'])
-def routes_route(request):
-    return master_route(request, 'routes', Route, RouteSerializer)
+class RouteView(ListCreateAPIView):
+    queryset = Route.objects.all()
+    serializer_class = RouteSerializer
 
 
-@api_view(['GET', 'POST'])
-def locations_route(request):
-    return master_route(request, 'locations', Location, LocationSerializer)
+class LocationView(ListCreateAPIView):
+    queryset = Location.objects.all()
+    serializer_class = LocationSerializer
 
 
-def generate_random_int():
-    random_int = random.randint(100000, 999999)
-    orders = Order.objects.filter(code=random_int)
-    if orders is not None:
-        return random.randint(100000, 999999)
-    else:
-        return random_int
+class OrderView(ListCreateAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
 
 
 @api_view(['GET', 'POST'])
@@ -73,14 +69,22 @@ def customers_route(request):
     return master_route(request, 'customers', Customer, CustomerSerializer)
 
 
-@api_view(['GET', 'POST'])
-def buses_route(request):
-    return master_route(request, 'buses', Bus, BusSerializer)
+class BusView(ListCreateAPIView):
+    """
+    Returns all buses
+    Allows User to create bus
+    """
+    queryset = Bus.objects.all()
+    serializer_class = BusSerializer
 
 
-@api_view(['GET', 'POST'])
-def bus_companys_route(request):
-    return master_route(request, 'bus_company', BusCompany, BusCompanySerializer)
+class BusCompanyView(ListCreateAPIView):
+    """
+    Returns all bus companies
+    Allows User to create bus company
+    """
+    queryset = BusCompany.objects.all()
+    serializer_class = BusCompanySerializer
 
 
 def master_route(request, tableName, Table, TableSerializer):
