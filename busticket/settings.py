@@ -28,6 +28,13 @@ DEBUG = True
 ALLOWED_HOSTS = ['10.0.3.2', '127.0.0.1', 'localhost', 'busticket-backend.herokuapp.com']
 
 
+def isLocal():
+    try:
+        return os.environ["SERVER_NAME"] in ("localhost", "127.0.0.1")
+    except KeyError:
+        return True
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -76,21 +83,25 @@ WSGI_APPLICATION = 'busticket.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
 
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'dor4hdhi9aksg',
-    #     'USER': 'hswqmbhxywvmqj',
-    #     'PASSWORD': 'e39a8e97fe34962acf453435cf3eda7b5a64d92fc7217e2bf6e9e98ff90582f5',
-    #     'HOST': 'ec2-23-21-220-23.compute-1.amazonaws.com',
-    #     'PORT': '5432',
-    # }
-}
+if isLocal():
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'dor4hdhi9aksg',
+            'USER': 'hswqmbhxywvmqj',
+            'PASSWORD': 'e39a8e97fe34962acf453435cf3eda7b5a64d92fc7217e2bf6e9e98ff90582f5',
+            'HOST': 'ec2-23-21-220-23.compute-1.amazonaws.com',
+            'PORT': '5432',
+        }
+    }
 
 
 
