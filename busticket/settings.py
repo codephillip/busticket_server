@@ -32,7 +32,7 @@ def isLocal():
     try:
         return os.environ["SERVER_NAME"] in ("localhost", "127.0.0.1")
     except KeyError:
-        return True
+        return False
 
 
 # Application definition
