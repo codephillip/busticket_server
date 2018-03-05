@@ -1,3 +1,4 @@
+from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.encoding import smart_str
 
@@ -71,6 +72,12 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     customer = models.ForeignKey(Customer)
     route = models.ForeignKey(Route)
+    phone = models.CharField(max_length=12, blank=True, null=True, validators=[
+        RegexValidator(
+            regex='^(256|254|255)[0-9]{9}$',
+            message='Wrong phone number format',
+        ),
+    ])
 
     def __str__(self):
         return smart_str(self.code)
