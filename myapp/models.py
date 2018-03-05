@@ -42,7 +42,7 @@ class Bus(models.Model):
 
 
 class Location(models.Model):
-    name = models.CharField(max_length=400)
+    name = models.CharField(max_length=400, unique=True)
     longitude = models.FloatField(default=0.0)
     latitude = models.FloatField(default=0.0)
     created_at = models.DateTimeField(auto_now_add=True)
