@@ -53,7 +53,7 @@ class Location(models.Model):
 
 
 class Route(models.Model):
-    code = models.IntegerField()
+    code = models.IntegerField(unique=True)
     source = models.ForeignKey(Location, related_name='source')
     destination = models.ForeignKey(Location, related_name='destination')
     bus = models.ForeignKey(Bus)
