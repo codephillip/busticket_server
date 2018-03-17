@@ -47,6 +47,8 @@ class BusSerializer(serializers.ModelSerializer):
 
 class RouteSerializer(serializers.ModelSerializer):
     bus = BusSerializer(read_only=True)
+    source = LocationSerializer(read_only=True)
+    destination = LocationSerializer(read_only=True)
 
     class Meta:
         model = Route
