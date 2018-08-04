@@ -25,15 +25,6 @@ class OrderSerializer(serializers.ModelSerializer):
         return attrs
 
 
-class OrderGetSerializer(serializers.ModelSerializer):
-    customer = CustomerSerializer(read_only=True)
-    route = CustomerSerializer(read_only=True)
-
-    class Meta:
-        model = Order
-        fields = ('id', 'code', 'valid', 'created_at', 'customer', 'route')
-
-
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
@@ -68,6 +59,15 @@ class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
         fields = ('id', 'name', 'phone', 'password', 'email', 'address', 'longitude', 'latitude', 'created_at')
+
+
+class OrderGetSerializer(serializers.ModelSerializer):
+    customer = CustomerSerializer(read_only=True)
+    route = RouteSerializer(read_only=True)
+
+    class Meta:
+        model = Order
+        fields = ('id', 'code', 'valid', 'created_at', 'customer', 'route')
 
 
 class FeedbackSerializer(serializers.ModelSerializer):
