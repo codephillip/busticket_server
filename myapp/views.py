@@ -40,7 +40,7 @@ class CustomerOrdersView(ListCreateAPIView):
     serializer_class = OrderGetSerializer
 
     def get_queryset(self):
-        orders = Order.objects.filter(user=self.kwargs['pk'])
+        orders = Order.objects.filter(user_id=self.kwargs['pk'])
         return orders
 
 
