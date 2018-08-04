@@ -26,6 +26,9 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 class OrderGetSerializer(serializers.ModelSerializer):
+    customer = CustomerSerializer(read_only=True)
+    route = CustomerSerializer(read_only=True)
+
     class Meta:
         model = Order
         fields = ('id', 'code', 'valid', 'created_at', 'customer', 'route')

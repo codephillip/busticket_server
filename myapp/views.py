@@ -36,6 +36,14 @@ class OrderView(ListCreateAPIView):
             return OrderGetSerializer
 
 
+class CustomerOrdersView(ListCreateAPIView):
+    serializer_class = OrderGetSerializer
+
+    def get_queryset(self):
+        orders = Order.objects.filter(user=self.kwargs['pk'])
+        return orders
+
+
 @api_view(['GET', 'POST', 'PUT'])
 def customers_route(request):
     if request.method == 'PUT':
