@@ -37,7 +37,11 @@ class OrderView(ListCreateAPIView):
 
 
 class CustomerOrdersView(ListCreateAPIView):
-    serializer_class = OrderGetSerializer
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return OrderSerializer
+        else:
+            return OrderGetSerializer
 
     def get_queryset(self):
         orders = Order.objects.filter(customer_id=self.kwargs['pk'])
