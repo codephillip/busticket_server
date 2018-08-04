@@ -9,7 +9,7 @@ from rest_framework.response import Response
 
 from myapp.models import Route, Order, Customer, Bus, BusCompany, Location, Feedback
 from myapp.serializers import RouteSerializer, OrderSerializer, CustomerSerializer, BusSerializer, BusCompanySerializer, \
-    LocationSerializer, FeedbackSerializer
+    LocationSerializer, FeedbackSerializer, OrderGetSerializer
 
 
 def index(request):
@@ -28,7 +28,12 @@ class LocationView(ListCreateAPIView):
 
 class OrderView(ListCreateAPIView):
     queryset = Order.objects.all()
-    serializer_class = OrderSerializer
+
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return OrderSerializer
+        else:
+            return OrderGetSerializer
 
 
 @api_view(['GET', 'POST', 'PUT'])

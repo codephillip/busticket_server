@@ -25,6 +25,12 @@ class OrderSerializer(serializers.ModelSerializer):
         return attrs
 
 
+class OrderGetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ('id', 'code', 'valid', 'created_at', 'customer', 'route')
+
+
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
