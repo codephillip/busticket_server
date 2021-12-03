@@ -1,9 +1,9 @@
-Django==1.10.4
-django-filter==1.0.1
-djangorestframework==3.5.3
-gunicorn==19.6.0
+Django==2.2.24
+django-filter==2.4.0
+djangorestframework==3.11.2
+gunicorn==19.10.0
 itypes==1.1.0
-requests==2.12.4
+requests==2.20
 uritemplate==3.0.0
 whitenoise==3.2.2
 dj-database-url==0.4.1
