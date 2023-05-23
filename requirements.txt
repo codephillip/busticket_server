@@ -3,7 +3,7 @@ django-filter==1.0.1
 djangorestframework==3.5.3
 gunicorn==19.6.0
 itypes==1.1.0
-requests==2.12.4
+requests==2.31.0
 uritemplate==3.0.0
 whitenoise==3.2.2
 dj-database-url==0.4.1
